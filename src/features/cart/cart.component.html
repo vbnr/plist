@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col-8">
+      <ul class="list-group">
+        <li *ngFor="let pr of cartProducts" class="list-group-item">
+          Name: {{ pr.name }} | Price: {{ pr.price | currency }} | Quantity:
+          {{ pr.quantity }}
+
+          <div class="btn-group" role="group" aria-label="Actions">
+            <button
+              (click)="onChangeQuantity(pr.id, { increase: true })"
+              type="button"
+              class="btn btn-secondary btn-sm"
+            >
+              +
+            </button>
+            <button
+              (click)="onChangeQuantity(pr.id, { decrease: true })"
+              type="button"
+              class="btn btn-secondary btn-sm"
+            >
+              -
+            </button>
+            <button
+              (click)="onRemove(pr.id)"
+              type="button"
+              class="btn btn-danger btn-sm"
+            >
+              x
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-4">Summary: {{ totalPrice | currency }}</div>
+
+    <div class="text-center mt-5">
+      <button
+        [disabled]="cartProducts?.length === 0"
+        (click)="onCompleteOrder()"
+        type="button"
+        class="btn btn-success"
+      >
+        Complete the order
+      </button>
+    </div>
+  </div>
+</div>

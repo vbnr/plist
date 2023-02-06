@@ -1,0 +1,16 @@
+:host {
+  padding: 150px;
+
+  .row {
+    margin-top: 50px;
+  }
+
+  .list-group-item {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      margin-right: 2px;
+    }
+  }
+}

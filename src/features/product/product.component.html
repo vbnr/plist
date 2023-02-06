@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let pr of productList$ | async" class="col col-md-auto">
+      <div class="card" style="width: 18rem">
+        <img
+          [src]="pr.imageUrl | saveResourceUrl"
+          class="card-img-top"
+          alt=" {{ pr.name }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ pr.name }}</h5>
+          <p class="card-text">
+            {{ pr.description | subStr }}
+          </p>
+          <p>
+            {{ pr.price | currency}}
+          </p>
+          <button (click)="onAddToTheCart(pr)" class="btn btn-primary">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

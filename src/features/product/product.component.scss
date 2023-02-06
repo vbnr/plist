@@ -1,0 +1,12 @@
+:host {
+  padding: 15px;
+
+  .card {
+    margin-bottom: 24px;
+
+    img {
+      height: 150px;
+      object-fit: cover;
+    }
+  }
+}
